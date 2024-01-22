@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Add Product to Quote via CPQ API"  icon-name="standard:record">
+        <div class="slds-m-around_medium">
+            <!-- Quote Selector -->
+            <lightning-combobox name="quoteSelector" label="Select a Quote" value={quoteId} placeholder="Select a Quote" options={quotes} onchange={handleQuoteSelect}></lightning-combobox>
+
+            <!-- Product Selector -->
+            <lightning-combobox name="productSelector" label="Select a Product" value={productId} placeholder="Select a Product" options={products} onchange={handleProductSelect}></lightning-combobox>
+
+            <!-- Quantity Selector -->
+            <lightning-input type="number" name="quantitySelector" label="Enter Quantity" value={quantity} onchange={handleQuantityChange}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <!-- Add Product to Quote Button -->
+            <lightning-button label="Add Product to Quote" onclick={handleAddProductToQuote}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

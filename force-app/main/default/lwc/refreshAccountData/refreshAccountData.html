@@ -1,0 +1,11 @@
+<template>
+    <lightning-card  title="RefreshView">
+        <div class="sld-var-p-around-medium">
+            <lightning-input type="text" name= "input1" label="Enter Account Name" 
+                value="AccountName" lwc:ref="accNameRef">
+            </lightning-input>
+            <lightning-button label="Refresh View" variant="brand" onclick={refreshViewHandler} class="slds-p-around_medium">
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

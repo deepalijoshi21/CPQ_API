@@ -1,0 +1,34 @@
+<apex:page controller="URLParameterController">
+    <apex:form id="theForm" >
+        <script>
+        function openWindow() {
+            var url = 'https://hic31-dev-ed.develop.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9n_HvETGhr3CKHSk_eeHobZ9FCag4AYgMY1r7T..mY_JTx7OHfuQBwCmWE2WyduYsEh42NulZOYQK6ajn&redirect_uri=https://hic31-dev-ed.develop.lightning.force.com//apex/GetAuthorizationCode?core.apexpages.request.devconsole=1';
+            window.location.replace(url);
+        }
+        // Only call openWindow() if 'code' parameter is not present in the URL
+        if (!window.location.search.includes('code')) {
+            openWindow();
+        }
+        </script>
+        <apex:outputText value="The URL parameter value is: {!urlParam}" />
+          <apex:commandButton value="Save Code" action="{!saveCode}" rerender="theForm"  />
+    </apex:form>
+</apex:page>
+
+
+
+<!--
+<apex:page controller="URLParameterController">
+    <apex:form >
+	<script>
+        function openWindow() {
+            var url = 'https://hic31-dev-ed.develop.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9n_HvETGhr3CKHSk_eeHobZ9FCag4AYgMY1r7T..mY_JTx7OHfuQBwCmWE2WyduYsEh42NulZOYQK6ajn&redirect_uri=https://hic31-dev-ed.develop.lightning.force.com//apex/GetAuthorizationCode?core.apexpages.request.devconsole=1';
+            //var url = 'https://hic31-dev-ed.develop.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9n_HvETGhr3CKHSk_eeHobZ9FCag4AYgMY1r7T..mY_JTx7OHfuQBwCmWE2WyduYsEh42NulZOYQK6ajn&redirect_uri=https://login.salesforce.com?customUrl=' + encodeURIComponent('https://hic31-dev-ed.develop.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9n_HvETGhr3CKHSk_eeHobZ9FCag4AYgMY1r7T..mY_JTx7OHfuQBwCmWE2WyduYsEh42NulZOYQK6ajn');
+            
+            window.location.replace(url);
+        }
+        openWindow();
+        </script>
+        <apex:outputText value="The URL parameter value is: {!urlParam}" />
+    </apex:form>
+</apex:page> -->
