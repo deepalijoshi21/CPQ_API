@@ -70,6 +70,7 @@ export default class QuoteLineItemEditor extends LightningElement {
                         variant: 'success',
                     }),
                 );
+
             })
             .catch(error => {
                 console.error('Error adding product to quote', error);
@@ -80,6 +81,12 @@ export default class QuoteLineItemEditor extends LightningElement {
                         variant: 'error',
                     }),
                 );
-            });
+            })
+            .finally(()=>{
+                // Clear the input fields
+                this.quoteId = null;
+                this.productId = null;
+                this.quantity = null;
+            })
     }
 }
